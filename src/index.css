@@ -1,0 +1,305 @@
+/* Import display fonts used for headings and body text. */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap");
+
+/* Global design tokens (CSS custom properties) used across the app. */
+:root {
+  /* Background and surface colors. */
+  --bg: #f7f4ec;
+  --surface: #fffdfa;
+  --surface-soft: #f2ede3;
+  /* Text colors. */
+  --ink: #1e2230;
+  --muted: #5b6175;
+  /* Brand and interaction colors. */
+  --primary: #1d7a64;
+  --primary-hover: #14604f;
+  /* Border and error colors. */
+  --border: #dfd7ca;
+  --danger: #b72f38;
+  /* Shared card shadow. */
+  --shadow: 0 18px 45px rgba(34, 41, 61, 0.08);
+  /* Default font family for the whole app. */
+  font-family: "Manrope", sans-serif;
+}
+
+/* Make width/height calculations include padding + border. */
+* {
+  box-sizing: border-box;
+}
+
+/* Base page styling. */
+body {
+  /* Remove browser default margin. */
+  margin: 0;
+  /* Ensure full viewport height coverage. */
+  min-height: 100vh;
+  /* Layered background gradients create subtle visual depth. */
+  background:
+    radial-gradient(circle at 0% 0%, rgba(29, 122, 100, 0.1), transparent 50%),
+    radial-gradient(
+      circle at 90% 20%,
+      rgba(194, 145, 72, 0.15),
+      transparent 35%
+    ),
+    var(--bg);
+  /* Default text color. */
+  color: var(--ink);
+}
+
+/* Anchor links inherit text color and remove underline by default. */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Shared centered content container. */
+.container {
+  /* Full width up to max constraint. */
+  width: 100%;
+  max-width: 1080px;
+  /* Horizontally center the container. */
+  margin: 0 auto;
+  /* Standard page padding. */
+  padding: 1rem 1.25rem;
+}
+
+/* Reusable card panel style used on most sections. */
+.card {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 1.1rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+/* Horizontal button/link row with wrapping support. */
+.row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Shared input primitives for consistent look/feel. */
+input,
+select,
+textarea,
+button {
+  padding: 0.65rem 0.8rem;
+  border: 1px solid #cfc7b8;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--ink);
+  background: #fff;
+}
+
+/* Pointer cursor on clickable button controls. */
+button {
+  cursor: pointer;
+}
+
+/* Accessible focus styling for keyboard navigation. */
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: 2px solid rgba(29, 122, 100, 0.25);
+  outline-offset: 1px;
+}
+
+/* Error text style used by form validation messages. */
+.error {
+  color: var(--danger);
+  font-size: 0.9rem;
+}
+
+/* Top navigation bar background and border. */
+.nav {
+  background: rgba(255, 253, 250, 0.9);
+  backdrop-filter: blur(4px);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+
+/* Layout for nav content row. */
+.nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 70px;
+  gap: 0.8rem;
+}
+
+/* Right-side link/action group in navbar. */
+.nav-links {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Brand typography styling. */
+.brand {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.03em;
+}
+
+/* Accent color for highlighted brand text segment. */
+.brand-accent {
+  color: var(--primary);
+}
+
+/* Consistent vertical spacing wrapper for page content. */
+.page-shell {
+  padding-top: 0.35rem;
+}
+
+/* Optional width cap for denser cards/forms. */
+.panel {
+  max-width: 760px;
+}
+
+/* Base button style reused by all button variants. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 0.58rem 0.85rem;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+  font-weight: 600;
+}
+
+/* Solid brand button style. */
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* Hover color for primary buttons. */
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+/* Subtle neutral button style. */
+.btn-soft {
+  background: var(--surface-soft);
+  border-color: var(--border);
+}
+
+/* Destructive action button style (delete). */
+.btn-danger {
+  background: #fbe8e8;
+  border-color: #e9b8bc;
+  color: #8f1d24;
+}
+
+/* Generic horizontal split layout helper. */
+.split {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+/* Muted helper text color. */
+.muted {
+  color: var(--muted);
+}
+
+/* Shared pill badge appearance used for task statuses. */
+.status-pill {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.8rem;
+  border: 1px solid var(--border);
+  background: var(--surface-soft);
+  text-transform: capitalize;
+}
+
+/* To-do status color. */
+.status-pill.todo {
+  background: #fff1df;
+  border-color: #e5c591;
+}
+
+/* In-progress status color. */
+.status-pill.in-progress {
+  background: #e7f4fe;
+  border-color: #9cc6e6;
+}
+
+/* Done status color. */
+.status-pill.done {
+  background: #e8f7ed;
+  border-color: #9ecaa8;
+}
+
+/* Responsive grid for dashboard statistic cards. */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+}
+
+/* Individual stat card style. */
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0.75rem;
+}
+
+/* Large number style inside stat cards. */
+.stat strong {
+  display: block;
+  font-size: 1.35rem;
+  margin-top: 0.2rem;
+}
+
+/* Two-column form layout for larger screens. */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+/* Field block spacing. */
+.field {
+  margin-bottom: 0.75rem;
+}
+
+/* Label styling for readability. */
+.field label {
+  display: inline-block;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+}
+
+/* Utility class to make a field span all columns in form grid. */
+.field-wide {
+  grid-column: 1 / -1;
+}
+
+/* Heading typography shared by h1/h2/h3. */
+h1,
+h2,
+h3 {
+  font-family: "Space Grotesk", sans-serif;
+  margin-top: 0;
+}
+
+/* Mobile layout adjustment: collapse form grid to single column. */
+@media (max-width: 720px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
